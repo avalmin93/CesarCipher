@@ -5,12 +5,12 @@ public class ManagementFiles {
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFile))) {
             String line;
 
-            StringBuilder salida = new StringBuilder();  // Usamos StringBuilder para eficiencia en la concatenación
+            StringBuilder salida = new StringBuilder();
 
             while((line = reader.readLine()) != null) {
-                salida.append(line);  // Concatenamos cada línea leída
+                salida.append(line);
             }
-            return salida.toString();  // Convertimos el StringBuilder a String
+            return salida.toString();
         }
     }
     public static void out (String outputFile,String data) throws IOException {
