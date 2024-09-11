@@ -4,13 +4,14 @@ public class ManagementFiles {
     public static String orginal(String inputFile) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFile))) {
             String line;
-            String salida = "";
+
+            StringBuilder salida = new StringBuilder();  // Usamos StringBuilder para eficiencia en la concatenación
 
             while((line = reader.readLine()) != null) {
-                salida = line;
-                }
-            return salida;
+                salida.append(line);  // Concatenamos cada línea leída
             }
+            return salida.toString();  // Convertimos el StringBuilder a String
+        }
     }
     public static void out (String outputFile,String data) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
