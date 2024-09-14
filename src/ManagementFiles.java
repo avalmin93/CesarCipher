@@ -8,7 +8,7 @@ public class ManagementFiles {
             StringBuilder salida = new StringBuilder();
 
             while((line = reader.readLine()) != null) {
-                salida.append(line);
+                salida.append(line).append(System.lineSeparator());
             }
             return salida.toString();
         }

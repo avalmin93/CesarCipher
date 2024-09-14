@@ -19,7 +19,7 @@ public class CipherAlgorithm {
                 int shiftedIndex = (index + shift + ALPHABET.length()) % ALPHABET.length();
                 result.append(ALPHABET.charAt(shiftedIndex));
             } else {
-                result.append(c);  // Non-alphabetic characters are unchanged
+                result.append(c);
             }
         }
 
