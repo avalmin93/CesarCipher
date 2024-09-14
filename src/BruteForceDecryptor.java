@@ -13,6 +13,10 @@ public class BruteForceDecryptor {
                     writer.newLine();
                 }
             }
+        } catch (FileNotFoundException e) {
+            System.err.println("Archivo no encontrado: " + inputFile);
+        } catch (IOException e) {
+            System.err.println("Error al leer o escribir archivo: " + e.getMessage());
         }
     }
 }

@@ -14,10 +14,10 @@ public class CifradoCesar {
 
         option = menu.ejecute();
 
-        System.out.println("Ingrese la ruta del archivo original. Ejemplo \"C:/buzon/original.txt\"");
+        System.out.println("Ingrese la ruta del archivo original. Ejemplo C:/buzon/original.txt");
         final String routeIn = scanner.nextLine();
         //scanner.nextLine();
-        System.out.println("Ingrese la ruta y nombre del archivo de salida. Ejemplo \"C:/buzon/cifrado.txt\"");
+        System.out.println("Ingrese la ruta y nombre del archivo de salida. Ejemplo C:/buzon/cifrado.txt");
         //scanner.nextLine();
         final String routeOut = scanner.nextLine();
 
@@ -29,20 +29,20 @@ public class CifradoCesar {
                     String inputTxt = readTxt.orginal(routeIn);
                     String cifrado = cipherAlgorithm.encrypt(inputTxt, key);
                     readTxt.out(routeOut, cifrado);
+                    System.out.println("Archivo encriptado correctamente. Ver archivo en :" + routeOut);
                     break;
                 case 2:
                     System.out.println("Ingrese la clave");
-                    inputTxt = readTxt.orginal(routeOut);
+                    inputTxt = readTxt.orginal(routeIn);
                     key = scanner.nextInt();
                     //String descifrado = cipherAlgorithm.decrypt("IPMB NVOEP",key);
                     String descifrado = cipherAlgorithm.decrypt(inputTxt, key);
-                    System.out.println("Este es el descifrado " + descifrado);
+                    readTxt.out(routeOut, descifrado);
+                    System.out.println("Archivo desencriptado correctamente. Ver archivo en: " + routeOut);
                     break;
                 case 3:
-                    String inCipher = "c:/buzon/cifrado.txt"; //"FTUB FT VOB QSVFCB";
-                    String resultBruteForce = "c:/buzon/decifbrute.txt";
-                    BruteForceDecryptor.bruteForceDecrypt(inCipher, resultBruteForce);
-                    System.out.println(resultBruteForce);
+                    BruteForceDecryptor.bruteForceDecrypt(routeIn, routeOut);
+                    System.out.println("Fuerza bruta completada. Ver archivo en: " + routeOut);
                     break;
                 default:
                     System.out.println("Uso inválido.");
@@ -52,5 +52,6 @@ public class CifradoCesar {
         }
 
     }
+
 }
 
